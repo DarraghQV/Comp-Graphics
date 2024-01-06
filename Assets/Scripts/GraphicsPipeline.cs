@@ -50,9 +50,7 @@ public class GraphicsPipeline : MonoBehaviour
 
 
         List<Vector4> imageAfterRotation = ApplyTransformation(verts, matrixRotation);
-
         List<Vector4> imageAfterScale = ApplyTransformation(imageAfterRotation, matrixScale);
-
         List<Vector4> imageAfterTranslation = ApplyTransformation(imageAfterScale, matrixTranslation);
 
         SaveVector4ListToFile(imageAfterRotation, "imageAfterRotation.txt");
@@ -69,14 +67,10 @@ public class GraphicsPipeline : MonoBehaviour
 
         //Continue with Pipeline
         List<Vector4> viewVertices3D = ApplyTransformation(imageAfterTranslation, matrixViewing);
-
         List<Vector4> viewVertices2D = ApplyTransformation(viewVertices3D, matrixProjection);
 
 
-
-
         Outcode outcode = new Outcode(new Vector2(3, -3));
-
         print(outcode.outcodeString());
 
         Vector2 startPoint = new Vector2(-2, 1);
@@ -213,7 +207,7 @@ public class GraphicsPipeline : MonoBehaviour
         if ((startOutcode * endOutcode) != viewportOutcode) return false;
         //Both have a 1 in common in outcodes so either both up, down, left, right, so won't be in viewport
 
-        //If neither return, more work to do...
+        //If neither return, more work to do.
 
         //if the code gets to here only concerned with clipping start
         if (startOutcode == viewportOutcode) return LineClip(ref endPoint, ref startPoint);
@@ -255,12 +249,13 @@ public class GraphicsPipeline : MonoBehaviour
             }
         }
 
-        return false; //means no intercept was found.
+        return false; // No intercept found.
 
         /*Get the outcodes of the two coordinates,
      * If both outcodes are 0000 we can 'trivial accept' the coords
      * If the 'AND' of the two outcodes IS NOT 0000 we can 'trivial reject'
-     * If the 'AND' of the coords IS 0000 there is more work to do...*/
+     * If the 'AND' of the coords IS 0000 there is more work to do.*/
+
     }
 
     private Vector2 LineIntercept(Vector2 startPoint, Vector2 endPoint, String viewportSide)
@@ -293,16 +288,16 @@ public class GraphicsPipeline : MonoBehaviour
         List<Vector2Int> output = new List<Vector2Int>();
 
         int dx = end.x - start.x;
-        // If dx is negative, flip the line
+        // If dx is negative, then flip the line
         if (dx < 0)
             return Bresenham(end, start);
 
         int dy = end.y - start.y;
-        // If dy is negative, line goes up. 
+        // If dy is negative, the line goes up
         if (dy < 0)
             return NegY(Bresenham(NegY(start), NegY(end)));
 
-        // If dy > dx swap the axes.
+        // If dy > dx swap the axes
         if ((dy) > (dx))
             return SwapXY(Bresenham(SwapXY(start), SwapXY(end)));
 
@@ -310,17 +305,17 @@ public class GraphicsPipeline : MonoBehaviour
         int ddy = 2 * (dy - dx);
         int p = 2 * dy - dx;
 
-        // Loop over the x-axis and calculate y-axis values.
+        // Loop over the X-axis and calculate Y-axis values
         for (int x = start.x, y = start.y; x <= end.x; x++)
         {
             output.Add(new Vector2Int(x, y));
             if (p < 0)
             {
-                p += ddx; // Move to next pixel on the right
+                p += ddx; 
             }
             else
             {
-                p += ddy; // Move to next pixel diagonal
+                p += ddy; 
                 y++;
             }
         }
@@ -345,15 +340,13 @@ public class GraphicsPipeline : MonoBehaviour
         return output;
     }
 
-    // For negative slopes
+    // Negative slopes
     private Vector2Int NegY(Vector2Int point)
     {
         return new Vector2Int(point.x, -point.y);
     }
 
-
-
-    // Swap x and y for lines where slope > 1
+    // Swap X and Y when slope is > 1
     private Vector2Int SwapXY(Vector2Int point)
     {
         return new Vector2Int(point.y, point.x);
@@ -365,7 +358,6 @@ public class GraphicsPipeline : MonoBehaviour
         {
             texture.SetPixel(point.x, point.y, color);
         }
-        
     }
 
     private List<Vector4> ConvertToHomg(List<Vector3> vertices)
@@ -375,10 +367,8 @@ public class GraphicsPipeline : MonoBehaviour
         foreach (Vector3 v in vertices)
         {
             output.Add(new Vector4(v.x, v.y, v.z, 1.0f));
-
         }
         return output;
-
     }
 
     private List<Vector4> ApplyTransformation
@@ -387,26 +377,7 @@ public class GraphicsPipeline : MonoBehaviour
         List<Vector4> output = new List<Vector4>();
         foreach (Vector4 v in verts)
         { output.Add(tranformMatrix * v); }
-
         return output;
-
-    }
-
-    private void DisplayMatrix(Matrix4x4 rotationMatrix)
-    {
-        for (int i = 0; i < 4; i++)
-        { print(rotationMatrix.GetRow(i)); }
-    }
-    private void SaveMatrixToFile(Matrix4x4 matrix, string filePath)
-    {
-        using (StreamWriter writer = new StreamWriter(filePath))
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                Vector4 row = matrix.GetRow(i);
-                writer.WriteLine($"{row.x}, {row.y}, {row.z}, {row.w}");
-            }
-        }
     }
 
     private void SaveVector4ListToFile(List<Vector4> vectorList, string filePath)
@@ -419,4 +390,23 @@ public class GraphicsPipeline : MonoBehaviour
             }
         }
     }
+
+    private void SaveMatrixToFile(Matrix4x4 matrix, string filePath)
+    {
+        using (StreamWriter writer = new StreamWriter(filePath))
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Vector4 row = matrix.GetRow(i);
+                writer.WriteLine($"{row.x}, {row.y}, {row.z}, {row.w}");
+            }
+        }
+    }
+
+    private void DisplayMatrix(Matrix4x4 rotationMatrix)
+    {
+        for (int i = 0; i < 4; i++)
+        { print(rotationMatrix.GetRow(i)); }
+    }
+
 }

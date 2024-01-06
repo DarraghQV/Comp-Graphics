@@ -47,63 +47,61 @@ public class Model
         vertices.Add(new Vector3(-2, -4, 1)); // 19
 
 
-
-
     }
 
-private void addFaces()
-{
+        private void addFaces()
+    {
 
-    // Front Faces
-    faces.Add(new Vector3Int(0, 6, 1)); // 1
-    faces.Add(new Vector3Int(1, 6, 7)); // 2
-    faces.Add(new Vector3Int(1, 4, 3)); // 3
-    faces.Add(new Vector3Int(1, 3, 2)); // 4
-    faces.Add(new Vector3Int(9, 5, 4)); // 7
-    faces.Add(new Vector3Int(9, 8, 5)); // 8
-    faces.Add(new Vector3Int(5, 8, 0)); // 9
-    faces.Add(new Vector3Int(0, 8, 6)); // 10
+        // Front Faces
+        faces.Add(new Vector3Int(0, 6, 1)); // 1
+        faces.Add(new Vector3Int(1, 6, 7)); // 2
+        faces.Add(new Vector3Int(1, 4, 3)); // 3
+        faces.Add(new Vector3Int(1, 3, 2)); // 4
+        faces.Add(new Vector3Int(9, 5, 4)); // 7
+        faces.Add(new Vector3Int(9, 8, 5)); // 8
+        faces.Add(new Vector3Int(5, 8, 0)); // 9
+        faces.Add(new Vector3Int(0, 8, 6)); // 10
 
-    // Sides
+        // Sides
 
-    faces.Add(new Vector3Int(2, 3, 12)); // 5
-    faces.Add(new Vector3Int(12, 3, 13)); // 6
-    faces.Add(new Vector3Int(10, 15, 5)); // 10
-    faces.Add(new Vector3Int(0, 10, 5)); // 17
+        faces.Add(new Vector3Int(2, 3, 12)); // 5
+        faces.Add(new Vector3Int(12, 3, 13)); // 6
+        faces.Add(new Vector3Int(10, 15, 5)); // 10
+        faces.Add(new Vector3Int(0, 10, 5)); // 17
 
-    faces.Add(new Vector3Int(8, 19, 6)); // 12
-    faces.Add(new Vector3Int(6, 19, 17)); // 13
-    faces.Add(new Vector3Int(7, 16, 9)); // 14
-    faces.Add(new Vector3Int(9, 16, 18)); // 15
+        faces.Add(new Vector3Int(8, 19, 6)); // 12
+        faces.Add(new Vector3Int(6, 19, 17)); // 13
+        faces.Add(new Vector3Int(7, 16, 9)); // 14
+        faces.Add(new Vector3Int(9, 16, 18)); // 15
 
-    faces.Add(new Vector3Int(0, 1, 10)); // 16
-    faces.Add(new Vector3Int(0, 15, 5)); // 17
+        faces.Add(new Vector3Int(0, 1, 10)); // 16
+        faces.Add(new Vector3Int(0, 15, 5)); // 17
 
-    faces.Add(new Vector3Int(17, 16, 6)); // 18
-    faces.Add(new Vector3Int(16, 7, 6)); // 19
+        faces.Add(new Vector3Int(17, 16, 6)); // 18
+        faces.Add(new Vector3Int(16, 7, 6)); // 19
 
-        faces.Add(new Vector3Int(19, 8, 18)); // 19
-        faces.Add(new Vector3Int(18, 8, 9)); // 19
-        faces.Add(new Vector3Int(12, 11, 1)); // 19
-        faces.Add(new Vector3Int(1, 2, 12)); // 19
-        faces.Add(new Vector3Int(14, 13, 3)); // 19
-        faces.Add(new Vector3Int(3, 4, 14)); // 19
-        faces.Add(new Vector3Int(0, 1, 10)); // 19
-        faces.Add(new Vector3Int(0, 15, 5)); // 19
-        faces.Add(new Vector3Int(1, 11, 10)); // 19
-        faces.Add(new Vector3Int(4, 15, 14)); // 19
-        faces.Add(new Vector3Int(5, 15, 4)); // 19
-        faces.Add(new Vector3Int(10, 17, 15)); // 19
-        faces.Add(new Vector3Int(11, 12, 13)); // 19
-        faces.Add(new Vector3Int(17, 11, 16)); // 19
-        faces.Add(new Vector3Int(17, 19, 15)); // 19
+        faces.Add(new Vector3Int(19, 8, 18)); // 20
+        faces.Add(new Vector3Int(18, 8, 9)); // 21
+        faces.Add(new Vector3Int(12, 11, 1)); // 22
+        faces.Add(new Vector3Int(1, 2, 12)); // 23
+        faces.Add(new Vector3Int(14, 13, 3)); // 24
+        faces.Add(new Vector3Int(3, 4, 14)); // 25
+        faces.Add(new Vector3Int(0, 1, 10)); // 26
+        faces.Add(new Vector3Int(0, 15, 5)); // 27
+        faces.Add(new Vector3Int(1, 11, 10)); // 28
+        faces.Add(new Vector3Int(4, 15, 14)); // 29
+        faces.Add(new Vector3Int(5, 15, 4)); // 30
+        faces.Add(new Vector3Int(10, 17, 15)); // 31
+        faces.Add(new Vector3Int(11, 12, 13)); // 32
+        faces.Add(new Vector3Int(17, 11, 16)); // 33
+        faces.Add(new Vector3Int(17, 19, 15)); // 34
 
         // Back Faces
 
-        faces.Add(new Vector3Int(10, 11, 17)); // 11
-    faces.Add(new Vector3Int(15, 19, 18)); // 11
-    faces.Add(new Vector3Int(15, 18, 14)); // 11
-    faces.Add(new Vector3Int(11, 13, 14)); // 11
+        faces.Add(new Vector3Int(10, 11, 17)); // 35
+        faces.Add(new Vector3Int(15, 19, 18)); // 36
+        faces.Add(new Vector3Int(15, 18, 14)); // 37
+        faces.Add(new Vector3Int(11, 13, 14)); // 38
     
 }
 
